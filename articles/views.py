@@ -1,4 +1,5 @@
 import articles
+from django.contrib import messages
 from django.db.models import query
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import ArticleForm
@@ -49,8 +50,13 @@ def index(request):
 
 # get one article
 def single_article(request, slug):
-    item = get_object_or_404(Article, slug=slug)
-    return render(request, 'articles/single_article.html', {'item': item})
+    try:
+        item = get_object_or_404(Article, slug=slug)
+        return render(request, 'articles/single_article.html', {'item': item})
+    except Exception:
+        messages.add_message(request, messages.WARNING, "Ups...Un tel article n'existe pas")
+        # messages.warning(request, "Ups...Un tel article n'existe pas")
+        return redirect('/')
 
 # create new article
 def create_article(request):

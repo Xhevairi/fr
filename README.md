@@ -1,2 +1,2 @@
 # Demo
-Very simple one for guthering news and writting articles.
+Very simple one for guthering news and writting articles.# fr

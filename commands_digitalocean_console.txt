@@ -1,6 +1,0 @@
-You can edit files and create new directories after logging in to your server, using command line operations. Create Directory is ‘mkdir’
-To edit files, use a text editor such as 'nano’ or 'vi’
-rm -R folder-name remove dir 
-To edit a database is far more complicated. 
-Generally you would use phpmyadmin on a web browser for a mysql database. 
-Or perhaps use a Windows app such as MySQL Workbench.
