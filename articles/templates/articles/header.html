@@ -1,0 +1,46 @@
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="{% url 'articles:index' %}"><span>On parle francais</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="{% url 'articles:about_us' %}">Pour Nous</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'articles:index' %}">Articles</a></li>
+          
+          <li class="dropdown"><a href="#"><span>Par Catégories</span> <i class="bi bi-chevron-right"></i></a>
+            <ul>
+              <li><a href="/">Tous</a></li>
+              <li><a href="{% url 'articles:index' %}?category=ACT">Actualité</a></li>
+              <li><a href="{% url 'articles:index' %}?category=BNS">Économie</a></li>
+              <li><a href="{% url 'articles:index' %}?category=POL">Politique</a></li>
+              <li><a href="{% url 'articles:index' %}?category=HL">Santé</a></li>
+              <li><a href="{% url 'articles:index' %}?category=HS">Histoire</a></li>
+              <li><a href="{% url 'articles:index' %}?category=LTR">Littérature</a></li>
+              <li><a href="{% url 'articles:index' %}?category=ENTM">Divertissement</a></li>
+              <li><a href="{% url 'articles:index' %}?category=SP">Sport</a></li>
+            </ul>
+
+          <li><a class="nav-link scrollto" href="{% url 'articles:newsapi' %}">Journaux</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Nous Contacter</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+      <h1>Bienvenue sur notre page</h1>
+      <h2>A travers ce site, vous pouvez donner votre avis et vous pouvez trouver des actualités dans tous les domaines</h2>
+      <a href="{% url 'articles:index' %}" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+    </div>
+  </section><!-- End Hero -->

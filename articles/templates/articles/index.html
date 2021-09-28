@@ -1,0 +1,87 @@
+{% extends "articles/base.html" %}
+
+{% load static %}
+
+
+{% block content %}    
+
+
+<!-- ======= Content Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container">            
+            <div class="row">
+                
+                {% for item in articles %}
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-item">
+                        <img src="{{ item.authors_image.url }}" class="testimonial-img" alt="">
+                        <h3>{{ item.title }}</h3>
+                        {{ item.authors }}
+                        <small class="text-muted">{{item.created_at}}</small>
+                        <br>
+                            <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i> -->
+                                {{ item.content | truncatewords_html:55 }}
+                                <a href="{% url 'articles:single_article' item.slug %}" class="btn btn-outline-secondary">Lire la suite</a>
+                            <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+        </div>
+    </section><!-- End Content Section -->
+
+
+<!-- ======= Cta Section ======= -->
+<section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
+        
+        <div class="text-center">
+            <h3>Appel à l'Action</h3>
+            <p>Si vous souhaitez être informé ou souhaitez exprimer votre opinion, veuillez nous contacter.</p>
+            <a class="cta-btn" href="#">Appel à l'Action</a>
+        </div>
+        
+    </div>
+</section><!-- End Cta Section -->
+
+<!-- ======= Slide Content Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container">
+        
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+            <h2>Tous les articles</h2>
+            <p>Vous trouverez ici une série d'articles sur divers sujets, tels que la littérature, les arts, la politique, la santé, la science, le sport, l'actualité, etc.</p>
+        </div>
+        
+        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                
+                {% for item in articles %}
+                    <!-- Slide Articles Content Item -->
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <img src= '{{ item.authors_image.url }}' class="testimonial-img" alt="">
+                        <h3>{{ item.title }}</h3>
+                        {{ item.authors }}
+                        <br>
+                        <small class="text-muted">{{item.created_at}}</small>
+                        <p>
+                            <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i> -->
+                                {{ item.content | truncatewords_html:25 }}
+                                <a href="{% url 'articles:single_article' item.slug %}" class="btn btn-outline-secondary">Lire la suite</a>
+                                <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
+                        </p>
+                    </div>
+                </div><!-- End content item -->
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    
+    </div>
+</section><!-- End Slide Content Section -->
+
+
+
+{% endblock content %}
