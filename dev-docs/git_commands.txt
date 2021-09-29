@@ -1,0 +1,171 @@
+git config –global user.name “[name]” ->sets author name
+git config –global user.email “[email address]” ->sets author email id
+
+git init [repository name] ->start new repository
+
+git clone [url] ->obtain a repository from an existing URL.
+
+git add [file] ->adds a file to the staging area.
+
+git commit -m “[ Type in the commit message]” ->records or snapshots the file permanently in the version history.
+git commit -a ->commits any files you’ve changed since then.&commits any files you’ve added
+
+git diff ->shows the file differences which are not yet staged.
+git diff –staged ->differences between the files in the staging area and the latest version present.
+git diff [first branch] [second branch] ->differences between the two branches mentioned.
+
+git reset [file] ->unstages the file, but it preserves the file contents.
+git reset [commit] ->undoes all the commits after the specified commit and preserves the changes locally.
+git reset –hard [commit] ->discards all history and goes back to the specified commit.
+
+git status ->command lists all the files that have to be committed.
+
+git rm [file] ->deletes the file from your working directory and stages the deletion.
+
+git log ->used to list the version history for the current branch.
+git log –follow[file] ->lists version history for a file, including the renaming of files also.
+
+git show [commit] ->shows the metadata and content changes of the specified commit.
+
+git tag [commitID] ->used to give tags to the specified commit.
+
+git branch ->lists all the local branches in the current repository.
+git branch [branch name] -> creates a new branch.
+git branch -d [branch name] -> deletes the feature branch.
+
+git checkout [branch name] -> used to switch from one branch to another
+git checkout -b [branch name] ->creates a new branch and also switches to it.
+
+git merge [branch name] ->merges the specified branch’s history into the current branch.
+
+git remote add [variable name] [Remote Server Link] ->used to connect your local repository to the remote server.
+
+git push [variable name] master ->sends the committed changes of master branch to your remote repository.
+git push [variable name] [branch] ->sends the branch commits to your remote repository.
+git push –all [variable name] ->pushes all branches to your remote repository.
+git push [variable name] :[branch name] ->deletes a branch on your remote repository.
+
+git pull [Repository Link] ->fetches and merges changes on the remote server to your working directory.
+
+git stash save ->stores all the modified tracked files.
+
+git stash pop ->restores the most recently stashed files.
+git stash list ->lists all stashed changesets.
+git stash drop ->discards the most recently stashed changeset.
+
+@Fabaladibbasey
+Fabaladibbasey commented on Feb 6
+git checkout -b [name of the branch] -> to create a new branch
+git checkout [name of the branch] -> to navigate into the named branch
+git checkout -d [name of the branch] -> to delete the branch
+git merge [branch name] -> to merge the branch to current branch in working directory
+
++++++++++++++++++++++++++
+Create .gitignore file, using this link, for Django:
+https://www.toptal.com/developers/gitignore?templates=django
+
+Github Video Tutorial
+https://www.youtube.com/watch?v=RGOj5yH7evk
+https://github.com/Xhevairi?tab=repositories
+
+$ ls --la - listen everything, also hiden 
+$ git status
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+$ git add . - add files 
+$ git add index.html
+$ git commit -m "Added index.html" -m "some discription..." (saved are done localy)
+$ git push     (saved are done to repository)
+$ git
+- to connect to yur github, using ssh key, you ought to generate the key:
+In your terminal:
+    ~# ssh-keygen -t rsa -b 4096 -C "your_email_account"
+- you are asking where to save: testkey
+    ~# ls | grep testkey
+    ~# cat testkey.pub - to show public key;
+    ~# vim ~/.ssh/config/ - go to congig file 
+    ~# git push origin master - pushed to the place when you opend the repo.
+        - origin is about location of our repo
+        - master is the barnch when you want to push to
+
+But what hen you open the repo localy?
+https://github.com/Xhevairi?tab=repositories
+    - create dir of project
+    - cd to that dir 
+    - create README.md
+        # Demo 
+    - ~#git init - turn it in git repo; now you created git repo
+    -$ ls --help
+    -$ ls -a        - list all 
+
+        tracte and untract files
+    ~#git status 
+        git add with . or name of file: 
+    ~# git add Readme.md
+
+        -includes all new, modified, and deleted files
+        -A option is shorthand for --all
+    $ git add -A   
+
+        Add all files in the current working directory:
+$ git add .
+
+        The previous commands will also remove a file from your repository 
+        if it no longer exists in the project. If that is an undesired behavior in 
+        your case then you should use the --ignore-removal option, 
+        which will only stage new and modified files:
+$ git add --ignore-removal .
+
+     stage modified and deleted files, but not any new files
+     the -u flag, which is shorthand for the --update option
+        $ git add -u
+    add multiple files at once by using wildcard patterns
+        $ git add *.py
+
+    use the ** syntax, which matches all subdirectories
+    for another example, this command would add all JavaScript files, including those in subdirectories:
+        $ git add **/*.js
+
+    - ~# git comit -m "Created readme file" - "description bla bla bla.."
+    - in your accont github create a new repo
+    - copy github link of your new repo (for example: demo-news)
+            https://github.com/Xhevairi/demo-news.git
+    ~# git remote add origin https://github.com/Xhevairi/demo-news.git
+    ~# git push -u origin master        - here -u is for upstream 
+    ++++
+    Create Features branch 
+
+    $git branch 
+    * master
+    (END)
+        Nese shfaqet pamja e mesiperm: q enter for quit. Now create a new branch:
+    $git checkout -b feature-1  ose:
+    $git checkout -b feature-readme-instructions 
+    $git checkout master 
+
+    $git diff the_name_of_the_branch      - to compare versions and see changes 
+    hit q to quit 
+
+    Merge branch to master:
+    $git maarge the_name_of_the_branch
+
+        After you used and compered and marged the branch, delete it:
+    $git branch -d the_name_of_the_branch
+
+        Undo git changes:
+    $git reset name_of_file
+
+        or to reset all last changes: 
+    $git reset 
+
+        Ose for one commit firther the last one:
+    $git reset HEAD~1
+
+        or using logs and hashes:
+    $git log 
+    $git reset <hash code for interseted marge>
+
+Reset all of the changes, not unstaged but comletly removed:
+    $git reset --hard <hash code for interseted marge>
+
+    Forking - make a complet copy of repo

@@ -1,0 +1,767 @@
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  ##############
+  I replaced the code below with include index.hrtml
+  
+                <div class="col-md-4">
+                  
+                  {% for i in articles %}
+                  <div class="card shadow-sm">
+                    <img src="{{ i.urlToImage }}" class="card-img-top" alt="{{ i.title }}" >
+                    <div class="card-body">
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      
+                      <div class="d-flex justify-content-between align-items-center">                    
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        </div>
+                        <small class="text-muted">9 mins</small>
+                      </div>
+
+                    </div>
+                  </div>
+                </br>
+                {% endfor %}
+                </div>
+
+              <!-- </div> -->
+              
+              <div class="col-md-2">
+                
+                {% for i in articles %}
+                <div class="card shadow-sm">
+                  <img src="{{ i.urlToImage }}" class="card-img-top" alt="{{ i.title }}" >
+                  <div class="card-body">
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    
+                    <div class="d-flex justify-content-between align-items-center">                    
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      </div>
+                      <small class="text-muted">9 mins</small>
+                    </div>
+
+                  </div>
+                </div>
+              </br>
+              {% endfor %}
+              </div>
+##########################
+{% url 'articles:my_work' item.slug %}
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}   
+
+#####
+testimonial.html
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Testimonials - Company Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+  <!-- =======================================================
+  * Template Name: Company - v4.3.0
+  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html"><span>Com</span>pany</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="testimonials.html" class="active">Testimonials</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex">
+        <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Testimonials</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Testimonials</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="testimonial-item">
+              <h3>Saul Goodman</h3>
+              <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+              <h4>Ceo &amp; Founder</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-item mt-4 mt-lg-0">
+              <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+              <h3>Sara Wilsson</h3>
+              <h4>Designer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-item mt-4">
+              <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+              <h3>Jena Karlis</h3>
+              <h4>Store Owner</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="testimonial-item mt-4">
+              <img src="{% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="testimonial-item mt-4">
+              <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="testimonial-item mt-4">
+              <img src="{% static 'img/testimonials/testimonials-6.jpg' %}" class="testimonial-img" alt="">
+              <h3>Emily Harison</h3>
+              <h4>Store Owner</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Eius ipsam praesentium dolor quaerat inventore rerum odio. Quos laudantium adipisci eius. Accusamus qui iste cupiditate sed temporibus est aspernatur. Sequi officiis ea et quia quidem.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+  </main><!-- End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+ 
+
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
+#######
+the_rest.html
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+    <div class="container">
+        
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+            <h2>Services</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          </div>
+          
+          <div class="row">
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                  <div class="icon-box" data-aos="fade-up">
+                      <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                      <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                      <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                    </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="bx bx-tachometer"></i></div>
+                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon"><i class="bx bx-world"></i></div>
+                <h4 class="title"><a href="">Nemo Enim</a></h4>
+                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+        </div>
+        
+    </div>
+  
+</div>
+</section><!-- End Services Section -->
+
+<!-- ======= Counts Section ======= -->
+<section id="counts" class="counts  section-bg">
+    <div class="container">
+        
+        <div class="row no-gutters">
+            
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                  <i class="bi bi-emoji-smile"></i>
+                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                  <p><strong>Happy Clients</strong> consequuntur quae</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                <i class="bi bi-journal-richtext"></i>
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+                <i class="bi bi-headset"></i>
+                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+                <i class="bi bi-people"></i>
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+</section><!-- End Counts Section -->
+
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+            <h2>Portfolio</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          </div>
+          
+          <div class="row" data-aos="fade-in">
+              <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-app">App</li>
+                <li data-filter=".filter-card">Card</li>
+                <li data-filter=".filter-web">Web</li>
+              </ul>
+            </div>
+        </div>
+        
+        <div class="row portfolio-container" data-aos="fade-up">
+            
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                <img src="{% static 'img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                    <a href="{% static 'img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <div class="portfolio-wrap">
+                  <img src="{% static 'img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
+                  <div class="portfolio-links">
+                      <a href="{% static 'img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                <img src="{% static 'img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="{% static 'img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <div class="portfolio-wrap">
+                  <img src="{% static 'img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                    <a href="{% static 'img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                    <img src="{% static 'img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                        <a href="{% static 'img/portfolio/portfolio-5.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                <img src="{% static 'img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                    <a href="{% static 'img/portfolio/portfolio-6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+        </div>
+  
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+                <img src="{% static 'img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                    <a href="{% static 'img/portfolio/portfolio-7.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                    <img src="{% static 'img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                        <a href="{% static 'img/portfolio/portfolio-8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                    <img src="{% static 'img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                        <a href="{% static 'img/portfolio/portfolio-9.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+  
+    </div>
+</section><!-- End Portfolio Section -->
+
+####
+17/09/2021 21:27 min 
+articles/index.html  eshte i sakte
+{% extends "articles/base.html" %}
+
+{% load static %}
+
+
+{% block content %}    
+
+<!-- ======= Slide Content Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container">
+        
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+            <h2>Tous les articles</h2>
+            <p>Vous trouverez ici une série d'articles sur divers sujets, tels que la littérature, les arts, la politique, la santé, la science, le sport, l'actualité, etc.</p>
+        </div>
+        
+        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                
+                {% for item in articles %}
+                    <!-- Slide Articles Content Item -->
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <h3>{{ item.title }}</h3>
+                        <small class="text-muted">{{item.created_at}}</small>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                {{ item.content | truncatewords_html:25 }}
+                                <a href="{% url 'articles:my_work' item.slug %}" class="btn btn-outline-secondary">Lire la suite</a>
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src= '{{ item.image.url }}' class="testimonial-img" alt="">
+                        <h3>{{ item.author_first_name }} {{ item.author_last_name }}</h3>
+                    </div>
+                </div><!-- End content item -->
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    
+    </div>
+</section><!-- End Slide Content Section -->
+
+<!-- ======= Cta Section ======= -->
+<section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
+        
+        <div class="text-center">
+            <h3>Appel à l'Action</h3>
+            <p>Si vous souhaitez être informé ou souhaitez exprimer votre opinion, veuillez nous contacter.</p>
+            <a class="cta-btn" href="#">Appel à l'Action</a>
+        </div>
+        
+    </div>
+</section><!-- End Cta Section -->
+
+    <!-- ======= Content Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+        <div class="container">            
+            <div class="row">
+                
+                {% for item in articles %}
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-item">
+                        <img src="{{ item.image.url }}" class="testimonial-img" alt="">
+                        <h3>{{ item.author_first_name }} {{ item.author_last_name }}</h3>
+                        <h3>{{ item.title }}</h3>
+                        <small class="text-muted">{{item.created_at}}</small>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                {{ item.content | truncatewords_html:25 }}
+                                <a href="{% url 'articles:my_work' item.slug %}" class="btn btn-outline-secondary">Lire la suite</a>
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+        </div>
+    </section><!-- End Content Section -->
+
+{% endblock content %}
+##############
+
+KETE VERSION KAM PERDORUR
+How to wrap the text around an image using HTML and CSS ?
+Last Updated : 30 Jul, 2021
+https://www.geeksforgeeks.org/how-to-wrap-the-text-around-an-image-using-html-and-css/
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Wrapping an Image with the text
+	</title>
+	
+	<style>
+		body {
+			margin: 20px;
+			text-align: center;
+		}
+		h1 {
+			color: green;
+		}
+		img {
+			float: left;
+			margin: 5px;
+		}
+		p {
+			text-align: justify;
+			font-size: 25px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>GeeksforGeeks</h1>
+	
+	<b>
+		A Computer Science
+		Portal for Geeks
+	</b>
+	
+	<div class="square">
+		<div>
+			<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20190808143838/logsm.png"
+					alt="Longtail boat in Thailand">
+		</div>
+		
+		
+<p>
+			How many times were you frustrated while looking
+			out for a good collection of programming/algorithm
+			/interview questions? What did you expect and what
+			did you get? This portal has been created to
+			provide well written, well thought and well
+			explained solutions for selected questions.
+			An IIT Roorkee alumnus and founder of GeeksforGeeks.
+			He loves to solve programming problems in most
+			efficient ways. Apart from GeeksforGeeks, he has
+			worked with DE Shaw and Co. as a software developer
+			and JIIT Noida as an assistant professor. It is a
+			good platform to learn programming. It is an
+			educational website. Prepare for the Recruitment
+			drive of product based companies like Microsoft,
+			Amazon, Adobe etc with a free online placement
+			preparation course.
+		</p>
+
+	</div>
+</body>
+
+</html>
+##############
+
+####
+
+static/css/stile.css text align: left 
+
+display: inline-block 
+#####
+my webpage: https://my-learning.w3schools.com/tutorials/
+
+
+##################
+image in line with text 
+<!-- In Your Css Code -->
+<style>
+  img {
+    width: 50%; /*image width*/
+    float: left; /*image position*/
+  }
+  p {
+    width: 50%;
+    float: right;
+  }
+  /*If you face any problem make sure the <body> element has no padding.
+  If you want some white space between the image and text, reduce the width
+  percentages and make use of "margin" and "padding"*/
+</style>
+
+<!-- In Your Html Code -->
+<img src="image.jpg" alt="Your Image">
+<p> Your Text Goes Here </p>
+##########################
+wrapping image -bootstrap 3
+https://stackoverflow.com/questions/65298851/wrapping-text-around-in-image-within-a-bootstrap-column
+
+<div class="row">
+    <div class="col-sm-5" style="padding-right:30px;">
+        <img class="img-responsive" src="{{$blogPost->getImagePath()}}" width="100%">
+    </div>
+    <div class="col-sm-7">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>{!!$blogPost->title!!}</h2>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="pull-right">
+                    {{$blogPost->created_at}}
+                </h3>
+            </div>
+        </div> 
+    </div>
+    <div class="col-sm-12" style="float: none;">
+      {!! Purifier::clean($blogPost->message) !!}
+    </div>
+    <div class="col-sm-12">
+        <hr />
+    </div>
+</div>
+#####################
+<body style="background-color: #ccffe6;">

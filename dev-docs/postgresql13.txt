@@ -1,0 +1,24 @@
+Postgresql\13\data exists: port 5432
+
+Installation Directory: C:\Program Files\PostgreSQL\13
+Server Installation Directory: C:\Program Files\PostgreSQL\13
+Data Directory: C:\Program Files\PostgreSQL\13\data
+
+Database Port: 5432
+Database Superuser: postgres
+
+Operating System Account: NT AUTHORITY\NetworkService
+
+Database Service: postgresql-x64-13
+Command Line Tools Installation Directory: C:\Program Files\PostgreSQL\13
+pgAdmin4 Installation Directory: C:\Program Files\PostgreSQL\13\pgAdmin 4
+Stack Builder Installation Directory: C:\Program Files\PostgreSQL\13
+
+V:O Do not selecy Stack Builder
+ JO JO 
+To disable the master password do the following:
+
+	-Locate the "Config.py" file. It's usually located in  "C:\Program Files\PostgreSQL\12\pgadmin 4\web" or "C:\Program Files (X86)\pgAdmin4\v4\web"
+	-In this directory create a new file named "Config_local.py" and add the line MASTER_PASSWORD_REQUIRED=False. If the "Config_local.py" already exist, edit it, and add the line at the bottom of the file. Save the file.
+	-Close PGAdmin4 and reopen it. You should now be able to access PGAdmin without the master password.
+
