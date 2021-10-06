@@ -1,8 +1,7 @@
-import articles
 from django.contrib import messages
-from django.db.models import query
-from django.shortcuts import get_object_or_404, render, redirect
-from .forms import ArticleForm
+from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView
+from .forms import ArticleModelForm
 from .models import Article
 import requests
 
@@ -35,6 +34,10 @@ def newsapi(request):
     }    
     return render(request, 'articles/newsapi.html', context)
 
+# # about us
+# class AboutusPageView(TemplateView):
+#     template_name = "articles/about_us.html"
+
 def about_us(request):
     return render(request, 'articles/about_us.html', {})
 
@@ -55,10 +58,30 @@ def single_article(request, slug):
         return render(request, 'articles/single_article.html', {'item': item})
     except Exception:
         messages.add_message(request, messages.WARNING, "Ups...Un tel article n'existe pas")
-        # messages.warning(request, "Ups...Un tel article n'existe pas")
         return redirect('/')
 
+# update the article
+class ArticleUpdateView(UpdateView):
+    template_name = "articles/update_article.html"
+    queryset = Article.objects.all()
+    form_class = ArticleModelForm
+
+    def get_success_url(self):
+        return reverse("articles:index")
+
+# delete article
+class ArticleDeleteView(DeleteView):
+    template_name = "articles/delete_article.html"
+    queryset = Article.objects.all() 
+
+    def get_success_url(self):
+        return reverse("articles:index")
+
 # create new article
-def create_article(request):
-    return render(request, 'articles/create_article.html', {})
+class ArticleCreateView(CreateView):
+    template_name = "articles/create_article.html"
+    form_class = ArticleModelForm
+
+    def get_success_url(self):
+        return reverse("articles:index")
 
