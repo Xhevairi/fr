@@ -43,9 +43,9 @@ def index(request):
     articles = Article.objects.all()
     category = request.GET.get('category')
     if (is_valid_queryparam(category)):
-        articles = Article.objects.all().filter(category__contains=category)
+        articles = articles.filter(category__contains=category)
     else:
-        articles = Article.objects.all()
+        articles = articles
     return render(request, 'articles/index.html', {'articles': articles})
 
 # get one article
