@@ -22,7 +22,7 @@
                 {% for item in articles %}
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="testimonial-item">
-                        <img src="{{ item.authors_image.url }}" class="testimonial-img" alt="">
+                        <img src="{{ item.authors_image_url }}" class="testimonial-img" alt="auth-img">
                         <h3>{{ item.title }}</h3>
                         {{ item.authors }}
                         <small class="text-muted">{{item.created_at}}</small>
@@ -69,7 +69,8 @@
                     <!-- Slide Articles Content Item -->
                 <div class="swiper-slide">
                     <div class="testimonial-item">
-                        <img src= '{{ item.authors_image.url }}' class="testimonial-img" alt="">
+                        <img src= " {{ item.authors_image_url }} " class="testimonial-img" alt="content-img">
+
                         <h3>{{ item.title }}</h3>
                         {{ item.authors }}
                         <br>

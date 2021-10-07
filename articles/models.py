@@ -44,3 +44,17 @@ class Article(models.Model):
 
     def is_upperclass(self):
         return self.category in {self.ACTUALITY, self.LITERATURE}
+    
+    @property
+    def authors_image_url(self):
+        if self.authors_image and hasattr(self.authors_image, 'url'):
+            return self.authors_image.url
+        else:
+            return "/static/img/authors_default_image.jpg"
+
+    @property
+    def content_image_url(self):
+        if self.content_image and hasattr(self.content_image, 'url'):
+            return self.content_image.url
+        else:
+            return "/static/img/content_default_image.jpg"

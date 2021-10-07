@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView
+from django.views.generic.detail import DetailView
 from .forms import ArticleModelForm
 from .models import Article
 import requests
@@ -34,12 +35,9 @@ def newsapi(request):
     }    
     return render(request, 'articles/newsapi.html', context)
 
-# # about us
-# class AboutusPageView(TemplateView):
-#     template_name = "articles/about_us.html"
-
-def about_us(request):
-    return render(request, 'articles/about_us.html', {})
+# about us
+class AboutusPageView(TemplateView):
+    template_name = "articles/about_us.html"
 
 # Retreve all and search by category
 def index(request):
@@ -52,13 +50,18 @@ def index(request):
     return render(request, 'articles/index.html', {'articles': articles})
 
 # get one article
-def single_article(request, slug):
-    try:
-        item = get_object_or_404(Article, slug=slug)
-        return render(request, 'articles/single_article.html', {'item': item})
-    except Exception:
-        messages.add_message(request, messages.WARNING, "Ups...Un tel article n'existe pas")
-        return redirect('/')
+class ArticleDetailView(DetailView):
+    template_name = "articles/single_article.html"
+    queryset = Article.objects.all()
+    context_object_name = "item"
+
+# def single_article(request, slug):
+#     try:
+#         item = get_object_or_404(Article, slug=slug)
+#         return render(request, 'articles/single_article.html', {'item': item})
+#     except Exception:
+#         messages.add_message(request, messages.WARNING, "Ups...Un tel article n'existe pas")
+#         return redirect('/')
 
 # update the article
 class ArticleUpdateView(UpdateView):
@@ -79,8 +82,9 @@ class ArticleDeleteView(DeleteView):
 
 # create new article
 class ArticleCreateView(CreateView):
-    template_name = "articles/create_article.html"
+    model = Article 
     form_class = ArticleModelForm
+    template_name = "articles/create_article.html"
 
     def get_success_url(self):
         return reverse("articles:index")

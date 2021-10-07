@@ -1,7 +1,18 @@
-Delete article?
+{% extends "articles/base.html" %} {% load static %} {% block content %}
 
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }}
+<h3>Supprimer cet article ? Es-tu sûr?</h3>
+<hr />
+{%load crispy_forms_tags %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ form|crispy }}
+        <input type="submit" value="Submit" />
+        <hr />
+      </form>
+    </div>
+  </div>
+</div>
 
-  <input type="submit" value="Submit" />
-</form>
+{% endblock %}
