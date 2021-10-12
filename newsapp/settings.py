@@ -1,4 +1,5 @@
 
+from decouple import config
 from ntpath import join
 import os
 
@@ -6,10 +7,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xy_&^659mfyljh_me4o(bvx!88ht*_5^d4=a5r-)4!gr@gt_@e'
+SECRET_KEY = config('SECRET_KEY')
 
+# news API country and key
+COUNTRY = config('COUNTRY')
+API_KEY = config('API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -129,3 +133,5 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

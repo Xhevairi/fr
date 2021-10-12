@@ -1,6 +1,6 @@
 # Demo
 
-It is a simple example for writting blogs or articles and guthering news in french language. It can be used for news in any other languages. I am working in Windows 10, and tt is used Python 3.9.5
+It is a simple example for writting blogs or articles and guthering news in french language. It can be used for news in any other languages. I am working in Windows 10, and it is used Python 3.9.5
 
 Follow this steps: - in the folder you will use for this project:
 .../>git clone <clone link of this project> - cd fr

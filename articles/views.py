@@ -1,13 +1,24 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView
 from django.views.generic.detail import DetailView
-from .forms import ArticleModelForm
+from .forms import ArticleModelForm, CustomCreationForm
 from .models import Article
 import requests
+from newsapp import settings
 
-# News API -top head
-API_KEY = '2d6d8492d8e540cc85c55714acbf6fcb'
+# News API country and key
+country = settings.COUNTRY
+API_KEY = settings.API_KEY
+
+# signup
+class SignupView(CreateView):
+    form_class = CustomCreationForm
+    template_name = "registration/signup.html"
+
+    def get_success_url(self):
+        return reverse("articles:login")
 
 # validate query parameters
 def is_valid_queryparam(param):
@@ -15,8 +26,6 @@ def is_valid_queryparam(param):
 
 # all news in french
 def newsapi(request):
-    # country = request.GET.get('country')
-    country = 'fr'
     category = request.GET.get('category')
 
     if category:
@@ -54,17 +63,9 @@ class ArticleDetailView(DetailView):
     template_name = "articles/single_article.html"
     queryset = Article.objects.all()
     context_object_name = "item"
-
-# def single_article(request, slug):
-#     try:
-#         item = get_object_or_404(Article, slug=slug)
-#         return render(request, 'articles/single_article.html', {'item': item})
-#     except Exception:
-#         messages.add_message(request, messages.WARNING, "Ups...Un tel article n'existe pas")
-#         return redirect('/')
-
+    
 # update the article
-class ArticleUpdateView(UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "articles/update_article.html"
     queryset = Article.objects.all()
     form_class = ArticleModelForm
@@ -73,7 +74,7 @@ class ArticleUpdateView(UpdateView):
         return reverse("articles:index")
 
 # delete article
-class ArticleDeleteView(DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "articles/delete_article.html"
     queryset = Article.objects.all() 
 
@@ -81,7 +82,7 @@ class ArticleDeleteView(DeleteView):
         return reverse("articles:index")
 
 # create new article
-class ArticleCreateView(CreateView):
+class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article 
     form_class = ArticleModelForm
     template_name = "articles/create_article.html"
