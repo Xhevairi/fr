@@ -67,7 +67,7 @@
           >
         </li>
         {% endif %} {% if request.user.is_authenticated %}
-        <li class="nav-link scrollto">{{ request.user.username }}</li>
+        <li class="nav-link scrollto">Connecté: {{ request.user.username }}</li>
         <li>
           <a class="nav-link scrollto" href=" {% url 'articles:logout' %} "
             >Logout</a
