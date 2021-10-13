@@ -17,16 +17,16 @@ In the browser, go to: https://newsapi.org/
 
 - signup and get the link and API key:
 for instance:
-https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=<your api key>
+https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your api key
 
-- copy <your api key> from the newsapi link, and paste it in .env file
+- copy your api key from the newsapi link, and paste it in .env file
 - also, put to .env file the info required as in .env_example, then:
 
-    - .../> py manage.py makemigrations
-    - .../> py manage.py migrate
-    - .../> py manage.py createsuperuser
-    - .../> py manage.py collectstatic
-    - .../> py manage.py runserver
+    .../> py manage.py makemigrations
+    .../> py manage.py migrate
+    .../> py manage.py createsuperuser
+    .../> py manage.py collectstatic
+    .../> py manage.py runserver
 
 Articles can posted, edited or dleted, if registerd users are part of staff. Superadmin can activate or not a user if she/he is staff member.
 
