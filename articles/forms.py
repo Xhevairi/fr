@@ -22,5 +22,12 @@ class ArticleModelForm(forms.ModelForm):
 class CustomCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ("username",)
-        field_classes = {'username': UsernameField}
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            )
+        field_classes = {
+            'username': UsernameField,
+            }

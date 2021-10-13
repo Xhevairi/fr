@@ -1,13 +1,16 @@
 {% extends "articles/base.html" %} {% load static %} {% block content %}
-
-<h3>Supprimer cet article ? Es-tu sûr?</h3>
-<hr />
+<br>
+<br>
 {%load crispy_forms_tags %}
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
+      <h3 style="background-color: rgba(255, 0, 0, 0.733)">Supprimer cet article ? Es-tu sûr?</h3>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form|crispy }}
+        <a href="{% url 'articles:index' %}" type="button" class="btn btn-info">
+          Annuler
+        </a>
         <button type="submit" value="submit" class="btn btn-danger">
           Soumettre
         </button>

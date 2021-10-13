@@ -1,15 +1,17 @@
 {% extends "articles/base.html" %} {% load static %} {% block content %}
-
+<br>
 <h3>Login Page</h3>
 <hr />
 {%load crispy_forms_tags %}
+
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
+      <p style="background-color:rgb(243, 221, 20)"> *Uniquement pour le personnel travaillant</p>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form|crispy }}
         <hr />
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" class="btn btn-primary"/>
       </form>
     </div>
   </div>

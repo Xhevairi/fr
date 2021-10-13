@@ -9,7 +9,8 @@
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form|crispy }}
         <hr />
-        <input type="submit" value="Soumettre" />
+        <a href=" {% url 'articles:index' %} " type="button"class="btn btn-info">Annuler</a>
+        <input type="submit" value="Soumettre" class="btn btn-warning"/>
       </form>
     </div>
   </div>

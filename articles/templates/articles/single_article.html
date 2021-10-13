@@ -23,8 +23,15 @@
           {{ item.content }}
         </div>
         <hr />
-        {% if request.user.is_authenticated %}
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        
         <div>
+          <a
+          href="{% url 'articles:index' %}"
+          type="button"
+          class="button btn btn-info"
+          >Tous Articles</a
+          >
           <a
             href="{% url 'articles:update_article' item.slug %}"
             type="button"
