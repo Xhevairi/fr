@@ -1,18 +1,22 @@
-{% extends "articles/base.html" %} {% load static %} {% block content %}
+{% extends "articles/base.html" %} {% load static %} 
+
+{%load crispy_forms_tags %}
+
+{% block content %}
 
 <h3>Créer un nouvel article</h3>
 <hr />
-{%load crispy_forms_tags %}
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form|crispy }}
         <hr />
-        <input type="submit" value="Soumettre" />
+        <input type="submit" value="Soumettre" class="btn btn-success"/>
       </form>
     </div>
   </div>
 </div>
 
+<script src="{% static 'js/slugify.js' %}"></script>
 {% endblock %}

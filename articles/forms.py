@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.forms import fields
 from .models import Article
@@ -31,3 +32,6 @@ class CustomCreationForm(UserCreationForm):
         field_classes = {
             'username': UsernameField,
             }
+
+class SignupAsStaff(LoginRequiredMixin):
+    pass 

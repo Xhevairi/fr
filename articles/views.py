@@ -1,14 +1,14 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.shortcuts import get_object_or_404, render, redirect, reverse
-from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView
-from django.views.generic.detail import DetailView
+from django.shortcuts import render, reverse
+from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, DetailView
 from .forms import ArticleModelForm, CustomCreationForm
 from .models import Article
 import requests
 from newsapp import settings
 
-# News API country and key
+# News API data
+API_URL = settings.API_URL
 country = settings.COUNTRY
 API_KEY = settings.API_KEY
 
@@ -29,20 +29,17 @@ def newsapi(request):
     category = request.GET.get('category')
 
     if category:
-        url = f'https://newsapi.org/v2/top-headlines?country={country}&category={category}&apiKey={API_KEY}'
+        url = f'{API_URL}={country}&category={category}&apiKey={API_KEY}'
         response = requests.get(url)
         data = response.json()
         articles = data['articles']
     else:
-        url = f'https://newsapi.org/v2/top-headlines?country={country}&apiKey={API_KEY}'
+        url = f'{API_URL}={country}&apiKey={API_KEY}'
         response = requests.get(url)
         data = response.json()
         articles = data['articles']
 
-    context = {
-        'articles' : articles
-    }    
-    return render(request, 'articles/newsapi.html', context)
+    return render(request, 'articles/newsapi.html', {'articles': articles})
 
 # about us
 class AboutusPageView(TemplateView):

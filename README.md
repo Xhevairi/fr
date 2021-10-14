@@ -17,7 +17,7 @@ In the browser, go to: https://newsapi.org/
 
 - signup and get the link and API key:
 for instance:
-https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your api key
+https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your_api_key
 
 - copy your api key from the newsapi link, and paste it in .env file
 - also, put to .env file the info required as in .env_example, then:
