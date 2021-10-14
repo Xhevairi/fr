@@ -4,7 +4,7 @@ It is a simple example for writting blogs or articles and guthering news in fren
 
 Follow this steps: 
 - in the folder you will use for this project:
-    .../>git clone <clone link of this project> - cd fr
+    - .../>git clone <clone link of this project> - cd fr
 
 or if you are using vs code: code . 
 
@@ -22,11 +22,11 @@ https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your_ap
 - copy your api key from the newsapi link, and paste it in .env file
 - also, put to .env file the info required as in .env_example, then:
 
-    .../> py manage.py makemigrations
-    .../> py manage.py migrate
-    .../> py manage.py createsuperuser
-    .../> py manage.py collectstatic
-    .../> py manage.py runserver
+    - .../> py manage.py makemigrations
+    - .../> py manage.py migrate
+    - .../> py manage.py createsuperuser
+    - .../> py manage.py collectstatic
+    - .../> py manage.py runserver
 
 Articles can posted, edited or dleted, if registerd users are part of staff. Superadmin can activate or not a user if she/he is staff member.
 
