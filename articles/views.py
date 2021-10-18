@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import render, reverse
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, DetailView
-from .forms import ArticleModelForm, CustomCreationForm
+from .forms import SignupAsStaff, ArticleModelForm, CustomCreationForm
 from .models import Article
 import requests
 from newsapp import settings
@@ -70,7 +70,8 @@ class ArticleDetailView(DetailView):
     context_object_name = "item"
     
 # update the article
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+# class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(SignupAsStaff, UpdateView):
     template_name = "articles/update_article.html"
     queryset = Article.objects.all()
     form_class = ArticleModelForm
@@ -79,7 +80,7 @@ class ArticleUpdateView(LoginRequiredMixin, UpdateView):
         return reverse("articles:index")
 
 # delete article
-class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+class ArticleDeleteView(SignupAsStaff, DeleteView):
     template_name = "articles/delete_article.html"
     queryset = Article.objects.all() 
 
@@ -87,7 +88,7 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
         return reverse("articles:index")
 
 # create new article
-class ArticleCreateView(LoginRequiredMixin, CreateView):
+class ArticleCreateView(SignupAsStaff, CreateView):
     model = Article 
     form_class = ArticleModelForm
     template_name = "articles/create_article.html"

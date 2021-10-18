@@ -86,6 +86,7 @@
         </li>
         {% endif %} {% if request.user.is_authenticated %}
         <li class="nav-link scrollto">{{ request.user.username }}</li>
+        {% if request.user.is_staff %}
         <li>
           <a
             class="nav-link scrollto"
@@ -93,6 +94,7 @@
             >Créer Article</a
           >
         </li>
+        {% endif %}
         <li>
           <a class="nav-link scrollto" href=" {% url 'articles:logout' %} "
             >Logout</a
