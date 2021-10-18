@@ -1,63 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <title>journaux français</title>
-</head>
-<body>    
-  <!-- Header  -->
-  <div class="text-center" style="background-color: #7ecceb;">
-    <h1>Journaux Français</h1>
-    <h6>
-      Sur ce site vous avez la possibilité de trouver des informations mises à jour, en français, pour de nombreux domaines, tels que les affaires, la santé, les sciences, les sports, etc.
-    </h6>
-  </br>
-  </div>
-  <!-- ./end header -->
+{% extends "articles/base.html" %}
 
-  <!-- Fixed Navbar  -->
+{% load static %}
 
-     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #65b2e6;"> 
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'articles:index' %}">Retour aux Articles</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{% url 'articles:newsapi' %}">Toutes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:newsapi' %}?category=health">Santé</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:newsapi' %}?category=technology">Technologie</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:newsapi' %}?category=Entertainment">Divertissement</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:newsapi' %}?category=Business">Entreprise</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:newsapi' %}?category=Sports">Sports</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:newsapi' %}?category=Science">Science</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-     </nav>
-    </br>
-    <!-- ./end navbar  -->
+
+{% block content %}  
     </br>
 
     <!-- Main -->
@@ -87,5 +33,6 @@
     <!-- active menu item -->
     
     <!-- ./end active menu item -->
+    {% endblock %}
   </body>
   </html>

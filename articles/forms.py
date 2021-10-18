@@ -34,4 +34,4 @@ class CustomCreationForm(UserCreationForm):
             }
 
 class SignupAsStaff(LoginRequiredMixin):
-    pass 
+    pass

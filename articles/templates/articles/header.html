@@ -18,47 +18,65 @@
         </li>
         <li>
           <a class="nav-link scrollto" href="{% url 'articles:index' %}"
-            >Articles</a
+            >Tous</a
           >
         </li>
 
         <li class="dropdown">
           <a href="#"
-            ><span>Par Catégories</span> <i class="bi bi-chevron-right"></i
+            ><span>Articles</span> <i class="bi bi-chevron-right"></i
           ></a>
           <ul>
-            <li><a href="/">Tous</a></li>
+            <li><a href="{% url 'articles:articles' %}">Tous</a></li>
             <li>
-              <a href="{% url 'articles:index' %}?category=ACT">Actualité</a>
+              <a href="{% url 'articles:articles' %}?category=ACT">Actualité</a>
             </li>
             <li>
-              <a href="{% url 'articles:index' %}?category=BNS">Économie</a>
+              <a href="{% url 'articles:articles' %}?category=BNS">Économie</a>
             </li>
             <li>
-              <a href="{% url 'articles:index' %}?category=POL">Politique</a>
+              <a href="{% url 'articles:articles' %}?category=POL">Politique</a>
             </li>
-            <li><a href="{% url 'articles:index' %}?category=HL">Santé</a></li>
+            <li><a href="{% url 'articles:articles' %}?category=HL">Santé</a></li>
             <li>
-              <a href="{% url 'articles:index' %}?category=HS">Histoire</a>
-            </li>
-            <li>
-              <a href="{% url 'articles:index' %}?category=LTR">Littérature</a>
+              <a href="{% url 'articles:articles' %}?category=HS">Histoire</a>
             </li>
             <li>
-              <a href="{% url 'articles:index' %}?category=ENTM"
+              <a href="{% url 'articles:articles' %}?category=LTR">Littérature</a>
+            </li>
+            <li>
+              <a href="{% url 'articles:articles' %}?category=ENTM"
                 >Divertissement</a
               >
             </li>
-            <li><a href="{% url 'articles:index' %}?category=SP">Sport</a></li>
+            <li><a href="{% url 'articles:articles' %}?category=SP">Sport</a></li>
           </ul>
         </li>
 
-        <li>
-          <a class="nav-link scrollto" href="{% url 'articles:newsapi' %}"
-            >Journaux</a
-          >
+        <li class="dropdown">
+          <a href="#"
+            ><span>Journaux</span> <i class="bi bi-chevron-right"></i
+          ></a>
+          <ul>
+            <li><a href="{% url 'articles:newsapi' %}">Tous</a></li>
+            <li>
+              <a href="{% url 'articles:newsapi' %}?category=health">Santé</a>
+            </li>
+            <li>
+              <a href="{% url 'articles:newsapi' %}?category=technology">Technologie</a>
+            </li>
+            <li>
+              <a href="{% url 'articles:newsapi' %}?category=Entertainment">Divertissement</a>
+            </li>
+            <li><a href="{% url 'articles:newsapi' %}?category=Business">Économique</a></li>
+            <li>
+              <a href="{% url 'articles:newsapi' %}?category=Sports">Sports</a>
+            </li>
+            <li>
+              <a href="{% url 'articles:newsapi' %}?category=Science">Science</a>
+            </li>
+          </ul>
         </li>
-        <li></li>
         <li><a class="nav-link scrollto" href="#contact">Nous Contacter</a></li>
         {% if not request.user.is_authenticated %}
         <li>

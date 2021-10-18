@@ -919,6 +919,7 @@ section {
   box-sizing: content-box;
   text-align:left;
   min-height: 320px;
+  padding-bottom: 10px;
 }
 
 .testimonials .testimonial-item .testimonial-img {

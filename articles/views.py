@@ -12,48 +12,56 @@ API_URL = settings.API_URL
 country = settings.COUNTRY
 API_KEY = settings.API_KEY
 
-# signup
-class SignupView(CreateView):
-    form_class = CustomCreationForm
-    template_name = "registration/signup.html"
-
-    def get_success_url(self):
-        return reverse("articles:login")
-
 # validate query parameters
 def is_valid_queryparam(param):
     return param != '' and param is not None
 
 # all news in french
+def newsapi_all(request):
+    url = f'{API_URL}={country}&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']    
+    return articles
+    
+# news by category
 def newsapi(request):
     category = request.GET.get('category')
-
     if category:
         url = f'{API_URL}={country}&category={category}&apiKey={API_KEY}'
         response = requests.get(url)
         data = response.json()
         articles = data['articles']
     else:
-        url = f'{API_URL}={country}&apiKey={API_KEY}'
-        response = requests.get(url)
-        data = response.json()
-        articles = data['articles']
-
+        articles = newsapi_all(request)
     return render(request, 'articles/newsapi.html', {'articles': articles})
 
-# about us
-class AboutusPageView(TemplateView):
-    template_name = "articles/about_us.html"
-
-# Retreve all and search by category
-def index(request):
+# all articles
+def all_articles(request):
     articles = Article.objects.all()
+    return articles
+
+# news and articles
+def index(request):
+    # news api queryset
+    news_api = newsapi_all(request)
+    # articles queryset
+    articles = all_articles(request)
+    context = {
+        'news_api': news_api,
+        'articles': articles,
+    }
+    return render(request, 'articles/index.html', context)
+
+# articles by category
+def articles(request):
+    articles = all_articles(request)
     category = request.GET.get('category')
     if (is_valid_queryparam(category)):
         articles = articles.filter(category__contains=category)
     else:
         articles = articles
-    return render(request, 'articles/index.html', {'articles': articles})
+    return render(request, 'articles/articles.html', {'articles': articles})
 
 # get one article
 class ArticleDetailView(DetailView):
@@ -87,3 +95,14 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse("articles:index")
 
+# signup
+class SignupView(CreateView):
+    form_class = CustomCreationForm
+    template_name = "registration/signup.html"
+
+    def get_success_url(self):
+        return reverse("articles:login")
+
+# about us
+class AboutusPageView(TemplateView):
+    template_name = "articles/about_us.html"
