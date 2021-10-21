@@ -1,4 +1,3 @@
-# from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import render, reverse
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, DetailView
