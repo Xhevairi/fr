@@ -4,7 +4,9 @@ It is a simple example for writting blogs or articles and guthering news in fren
 
 Follow this steps: 
 - in the folder you will use for this project:
-    - .../>git clone <clone link of this project> - cd fr
+    - .../>git clone <clone link of this project> 
+    
+    - cd fr
 
 or if you are using vs code: code . 
 
