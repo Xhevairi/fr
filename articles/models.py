@@ -1,5 +1,4 @@
 from django.db import models
-# from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
@@ -45,6 +44,7 @@ class Article(models.Model):
     def is_upperclass(self):
         return self.category in {self.ACTUALITY, self.LITERATURE}
     
+    # view author image
     @property
     def authors_image_url(self):
         if self.authors_image and hasattr(self.authors_image, 'url'):
@@ -52,9 +52,16 @@ class Article(models.Model):
         else:
             return "/static/img/authors_default_image.jpg"
 
+    # view content image
     @property
     def content_image_url(self):
         if self.content_image and hasattr(self.content_image, 'url'):
             return self.content_image.url
         else:
             return "/static/img/content_default_image.jpg"
+    
+    # delete image files
+    def delete(self, *args, **kwargs):
+        self.authors_image.delete()
+        self.content_image.delete()
+        super().delete(*args, **kwargs)

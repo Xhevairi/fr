@@ -2,6 +2,7 @@
 from django.contrib import messages
 from django.shortcuts import render, reverse
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, DetailView
+from django.urls import reverse_lazy
 from .forms import SignupAsStaff, ArticleModelForm, CustomCreationForm
 from .models import Article
 import requests
@@ -70,39 +71,30 @@ class ArticleDetailView(DetailView):
     context_object_name = "item"
     
 # update the article
-# class ArticleUpdateView(LoginRequiredMixin, UpdateView):
 class ArticleUpdateView(SignupAsStaff, UpdateView):
     template_name = "articles/update_article.html"
     queryset = Article.objects.all()
     form_class = ArticleModelForm
-
-    def get_success_url(self):
-        return reverse("articles:index")
+    success_url = reverse_lazy('articles:index')
 
 # delete article
 class ArticleDeleteView(SignupAsStaff, DeleteView):
     template_name = "articles/delete_article.html"
     queryset = Article.objects.all() 
-
-    def get_success_url(self):
-        return reverse("articles:index")
+    success_url = reverse_lazy('articles:index')
 
 # create new article
 class ArticleCreateView(SignupAsStaff, CreateView):
     model = Article 
     form_class = ArticleModelForm
     template_name = "articles/create_article.html"
-
-    def get_success_url(self):
-        return reverse("articles:index")
+    success_url = reverse_lazy('articles:index')
 
 # signup
 class SignupView(CreateView):
     form_class = CustomCreationForm
     template_name = "registration/signup.html"
-
-    def get_success_url(self):
-        return reverse("articles:login")
+    success_url = reverse_lazy('articles:login')
 
 # about us
 class AboutusPageView(TemplateView):
