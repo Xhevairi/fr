@@ -30,6 +30,8 @@ https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your_ap
     - .../> py manage.py collectstatic
     - .../> py manage.py runserver
 
-Articles can posted, edited or dleted, if registerd users are part of staff. Superadmin can activate or not a user if she/he is staff member.
+Articles can posted, edited or deleted if registerd users are part of staff. Superadmin can activate a user if she/he is staff member.
+Username: admin
+Password: admin
 
     Try it and good luck!
