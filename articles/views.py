@@ -33,22 +33,23 @@ def is_valid_queryparam(param):
 def newsapi_all(request):
     url = f'{API_URL}={country}&apiKey={API_KEY}'
     response = requests.get(url)
-    data = response.json()
-    articles = data['articles']    
-    return articles
-    
+    if response.status_code==200:
+        data = response.json()
+        articles = data['articles']
+        return articles
+
 # news by category
 def newsapi(request):
     category = request.GET.get('category')
     if category:
-        url = f'{API_URL}={country}&category={category}&apiKey={API_KEY}'
+        url = f'{API_URL}={country}&apiKey={API_KEY}&category={category}'
         response = requests.get(url)
         data = response.json()
         articles = data['articles']
     else:
         articles = newsapi_all(request)
     return render(request, 'articles/newsapi.html', {'articles': articles})
-
+    
 # all articles
 def all_articles(request):
     articles = Article.objects.all()

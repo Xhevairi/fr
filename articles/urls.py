@@ -22,7 +22,7 @@ urlpatterns = [
     path('single/<slug:slug>/update', views.ArticleUpdateView.as_view(), name='update_article'),
     path('single/<slug:slug>/delete', views.ArticleDeleteView.as_view(), name='delete_article'),
     path('create/', views.ArticleCreateView.as_view(), name='create_article'),
-    # register, login, logout and password reset, using auth.views 
+    # register, login, logout and password reset 
     path('signup/', views.SignupView.as_view(), name='signup'),
     path('password_reset/', views.password_reset_request, name='password_reset'),
     path('login/', LoginView.as_view(), name='login'),
