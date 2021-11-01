@@ -1,5 +1,12 @@
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import path
+from django.contrib.auth.views import (
+    LoginView, 
+    LogoutView, 
+    PasswordResetView, 
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+    )
+from django.urls import path, reverse_lazy, reverse
 from . import views
 
 app_name = 'articles'
@@ -15,8 +22,9 @@ urlpatterns = [
     path('single/<slug:slug>/update', views.ArticleUpdateView.as_view(), name='update_article'),
     path('single/<slug:slug>/delete', views.ArticleDeleteView.as_view(), name='delete_article'),
     path('create/', views.ArticleCreateView.as_view(), name='create_article'),
-    # register and log
+    # register, login, logout and password reset, using auth.views 
     path('signup/', views.SignupView.as_view(), name='signup'),
+    path('password_reset/', views.password_reset_request, name='password_reset'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
 ]

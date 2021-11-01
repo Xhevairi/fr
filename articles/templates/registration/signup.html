@@ -1,16 +1,26 @@
-{% extends "articles/base.html" %} {% load static %} {% block content %}
-<br>
+{% extends "articles/base.html" %}
+
+<!-- static files -->
+{% load static %}
+
+<!-- content -->
+{% block content %}
+<br />
 <h3>Signup Page</h3>
 <hr />
 {%load crispy_forms_tags %}
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
-      <p style="background-color:rgb(243, 221, 20)"> *Uniquement pour le personnel travaillant</p>
+      <p style="background-color: rgb(243, 221, 20)">
+        *Uniquement pour le personnel travaillant
+      </p>
       <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %} {{ form|crispy }}
+        {% csrf_token %}
+        <!-- form -->
+        {{ form|crispy }}
         <hr />
-        <input type="submit" value="Signup" class="btn btn-primary"/>
+        <input type="submit" value="Signup" class="btn btn-primary" />
       </form>
     </div>
   </div>

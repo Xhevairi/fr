@@ -1,4 +1,10 @@
-{% extends "articles/base.html" %} {% load static %} {% block content %}
+{% extends "articles/base.html" %}
+
+<!-- static files -->
+{% load static %}
+
+<!-- content -->
+{% block content %}
 
 <h3>Modifier cet article</h3>
 <hr />
@@ -7,10 +13,17 @@
   <div class="row">
     <div class="col-lg-6">
       <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %} {{ form|crispy }}
+        {% csrf_token %}
+        <!-- form -->
+        {{ form|crispy }}
         <hr />
-        <a href=" {% url 'articles:index' %} " type="button"class="btn btn-info">Annuler</a>
-        <input type="submit" value="Soumettre" class="btn btn-warning"/>
+        <a
+          href=" {% url 'articles:index' %} "
+          type="button"
+          class="btn btn-info"
+          >Annuler</a
+        >
+        <input type="submit" value="Soumettre" class="btn btn-warning" />
       </form>
     </div>
   </div>

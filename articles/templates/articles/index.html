@@ -1,8 +1,9 @@
 {% extends "articles/base.html" %}
 
+<!-- static files -->
 {% load static %}
 
-
+<!-- content -->
 {% block content %}    
 
 <!-- Messages Section -->
@@ -17,62 +18,60 @@
 <!-- ======= Content Section ======= -->
 <section id="testimonials" class="testimonials section-bg">
     <div class="container">            
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="container-lg container-md container-sm">
-                        <h3>Journaux</h3>
-                        <div class="row">
-                            {% for i in news_api %}
+        <div class="row">
+            <div class="col-md-9">
+                <div class="container-lg container-md container-sm">
+                    <h3>Journaux</h3>
+                    <div class="row">
+                        {% for i in news_api %}
                             <div class="col-lg-6 col-md-12 col-sm-12">
-                            <div class="card rounded shadow-lg m-2" style="width: 25rem;">
-                                <img src="{{ i.urlToImage }}" class="card-img-top" alt="{{ i.title }}" >
-                                <div class="card-body">
-                                    <p class="card-text">{{ i.author }}</p>
-                                    <h5 class="card-title">{{ i.title }}</h5>
-                                    <p class="card-title">{{ i.source.name }}</p>
-                                    <p class="card-text">{{ i.description }}</p>
-                                    <a href="{{ i.url }}" target="_blank" class="btn btn-outline-secondary">Lire la suite</a>
-                                    <small>date: {{ i.publishedAt }}</small>
+                                <div class="card rounded shadow-lg m-2" style="width: 25rem;">
+                                    <img src="{{ i.urlToImage }}" class="card-img-top" alt="{{ i.title }}" >
+                                    <div class="card-body">
+                                        <p class="card-text">{{ i.author }}</p>
+                                        <h5 class="card-title">{{ i.title }}</h5>
+                                        <p class="card-title">{{ i.source.name }}</p>
+                                        <p class="card-text">{{ i.description }}</p>
+                                        <a href="{{ i.url }}" target="_blank" class="btn btn-outline-secondary">Lire la suite</a>
+                                        <small>date: {{ i.publishedAt }}</small>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                          {% endfor %}
-                        </div>
+                            {% empty %}
+                            <p>Il n'y a pas de nouvelles</p>
+                        {% endfor %}
                     </div>
-
-                   
-                </div>
-                <!-- Articles -->
-                <div class="col-md-3">                    
-                    <div class="container">
-                        <h3>Articles</h3>
-                        <div class="row">
-                            {% for item in articles %}
-                            <div class="col-lg-12 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="100">
-                                <div class="testimonial-item">
-                                    <img src="{{ item.authors_image_url }}" class="testimonial-img" alt="auth-img">
-                                    <h3>{{ item.title }}</h3>
-                                    {{ item.authors }}
-                                    <small class="text-muted">{{item.created_at}}</small>
-                                    <br>
-                                        <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i> -->
-                                            {{ item.content | truncatewords_html:55 }}
-                                            <a href="{% url 'articles:single_article' item.slug %}" class="btn btn-outline-secondary">Lire la suite</a>
-                                        <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
-                                </div>
-                            </div>
-                            <hr>
-                            {% endfor %}
-                            
-                        </div>
-                    </div>
-                        
-                </div>
-                
+                </div>                   
             </div>
-    
-        </div>
-    </section><!-- End Content Section -->
+            <!-- Articles -->
+            <div class="col-md-3">                    
+                <div class="container">
+                    <h3>Articles</h3>
+                    <div class="row">
+                        {% for item in articles %}
+                        <div class="col-lg-12 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="100">
+                            <div class="testimonial-item">
+                                <img src="{{ item.authors_image_url }}" class="testimonial-img" alt="auth-img">
+                                <h3>{{ item.title }}</h3>
+                                {{ item.authors }}
+                                <small class="text-muted">{{item.created_at}}</small>
+                                <br>
+                                    <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i> -->
+                                        {{ item.content | truncatewords_html:55 }}
+                                        <a href="{% url 'articles:single_article' item.slug %}" class="btn btn-outline-secondary">Lire la suite</a>
+                                    <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
+                            </div>
+                        </div>
+                        <hr>
+                            {% empty %}
+                                <p>Il n'y a pas d'articles</p>
+                        {% endfor %}                            
+                    </div>
+                </div>                        
+            </div>                
+        </div>    
+    </div>
+</section><!-- End Content Section -->
 
 
 <!-- ======= Cta Section ======= -->

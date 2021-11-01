@@ -1,13 +1,23 @@
-{% extends "articles/base.html" %} {% load static %} {% block content %}
-<br>
-<br>
+{% extends "articles/base.html" %}
+
+<!-- static files -->
+{% load static %}
+
+<!-- content -->
+{% block content %}
+<br />
+<br />
 {%load crispy_forms_tags %}
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
-      <h3 style="background-color: rgba(255, 0, 0, 0.733)">Supprimer cet article ? Es-tu sûr?</h3>
+      <h3 style="background-color: rgba(255, 0, 0, 0.733)">
+        Supprimer cet article ? Es-tu sûr?
+      </h3>
       <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %} {{ form|crispy }}
+        {% csrf_token %}
+        <!-- form -->
+        {{ form|crispy }}
         <a href="{% url 'articles:index' %}" type="button" class="btn btn-info">
           Annuler
         </a>
