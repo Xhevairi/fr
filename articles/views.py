@@ -34,9 +34,19 @@ API_KEY = settings.API_KEY
 def is_valid_queryparam(param):
     return param != '' and param is not None
 
+# get category
+def get_category(request):
+    category = request.GET.get('category')
+    if category:
+        return category
+    else:
+        category = ''
+        return category
+
 # all news in french
 def newsapi_all(request):
-    url = f'{API_URL}={country}&apiKey={API_KEY}'
+    category = get_category(request)
+    url = f'{API_URL}={country}&apiKey={API_KEY}&category={category}'
     response = requests.get(url)
     if response.status_code==200:
         data = response.json()
@@ -45,14 +55,7 @@ def newsapi_all(request):
 
 # news by category
 def newsapi(request):
-    category = request.GET.get('category')
-    if category:
-        url = f'{API_URL}={country}&apiKey={API_KEY}&category={category}'
-        response = requests.get(url)
-        data = response.json()
-        articles = data['articles']
-    else:
-        articles = newsapi_all(request)
+    articles = newsapi_all(request)
     return render(request, 'articles/newsapi.html', {'articles': articles})
     
 # all articles
