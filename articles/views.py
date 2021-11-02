@@ -20,6 +20,11 @@ from .models import Article
 import requests
 from newsapp import settings
 
+# reset password
+DOMAIN_APP = settings.DOMAIN_APP
+SITE_NAME_APP = settings.SITE_NAME_APP
+PROTOCOL_APP = settings.PROTOCOL_APP
+
 # News API data
 API_URL = settings.API_URL
 country = settings.COUNTRY
@@ -126,12 +131,12 @@ def password_reset_request(request):
                     email_template_name = "password/password_reset_email.txt"
                     c = {
                     "email":user.email,
-                    'domain':'127.0.0.1:8000',
-                    'site_name': 'Website',
+                    'domain': DOMAIN_APP,
+                    'site_name': SITE_NAME_APP,
                     "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                     "user": user,
                     'token': default_token_generator.make_token(user),
-                    'protocol': 'http',
+                    'protocol': PROTOCOL_APP,
                     }
                     email = render_to_string(email_template_name, c)
                     try:

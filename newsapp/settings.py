@@ -15,6 +15,11 @@ API_URL = config('API_URL')
 COUNTRY = config('COUNTRY')
 API_KEY = config('API_KEY')
 
+# Reset Password
+DOMAIN_APP = config('DOMAIN_APP')
+SITE_NAME_APP = config('SITE_NAME_APP')
+PROTOCOL_APP = config('PROTOCOL_APP')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 # AUTH_USER_MODEL = 'account.Account'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
