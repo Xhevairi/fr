@@ -25,7 +25,7 @@ Make chnages to settings.py:
   https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your_api_key
 
 - copy your api key from the newsapi link, and paste it in .env file
-- also, put to .env file; the info required as in .env_example, then:
+- also put to .env file; the info required as in .env_example, then:
 
   - .../> py manage.py makemigrations
   - .../> py manage.py migrate
@@ -38,7 +38,7 @@ Articles can posted, edited or deleted if registerd users are part of staff. Sup
 Username: admin
 Password: admin
 
-For passward rest an account needs to be created. For a free one, you can use this web page:
+For password rest an account needs to be created. For a free one, you can use this web page:
 https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all
 
 Try it and good luck!
