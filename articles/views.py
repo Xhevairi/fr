@@ -66,11 +66,10 @@ def index(request):
     news_api = newsapi_all(request)
     # articles queryset
     articles = all_articles(request)
-    context = {
-        'news_api': news_api,
-        'articles': articles,
-    }
-    return render(request, 'articles/index.html', context)
+    return render(request, 'articles/index.html', {
+                                'news_api': news_api,
+                                'articles': articles,
+                            })
 
 # articles by category
 def articles(request):
