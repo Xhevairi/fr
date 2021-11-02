@@ -11,7 +11,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
-# end reset password 
+# ./end reset password 
 
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, DetailView
 from django.urls import reverse_lazy
@@ -24,6 +24,7 @@ from newsapp import settings
 DOMAIN_APP = settings.DOMAIN_APP
 SITE_NAME_APP = settings.SITE_NAME_APP
 PROTOCOL_APP = settings.PROTOCOL_APP
+EMAIL_ADMIN = settings.EMAIL_ADMIN
 
 # News API data
 API_URL = settings.API_URL
@@ -37,11 +38,7 @@ def is_valid_queryparam(param):
 # get category
 def get_category(request):
     category = request.GET.get('category')
-    if category:
-        return category
-    else:
-        category = ''
-        return category
+    return (lambda x: category if category else '')(category)
 
 # all news in french
 def newsapi_all(request):
@@ -143,7 +140,7 @@ def password_reset_request(request):
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        send_mail(subject, email, 'xhllakaj@gmail.com' , [user.email], fail_silently=False)
+                        send_mail(subject, email, EMAIL_ADMIN, [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     messages.success(request, 'A message with reset password instructions has been sent to your inbox.')

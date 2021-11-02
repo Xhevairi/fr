@@ -19,6 +19,7 @@ API_KEY = config('API_KEY')
 DOMAIN_APP = config('DOMAIN_APP')
 SITE_NAME_APP = config('SITE_NAME_APP')
 PROTOCOL_APP = config('PROTOCOL_APP')
+EMAIL_ADMIN = config('EMAIL_ADMIN')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
