@@ -25,7 +25,7 @@ Make chnages to settings.py:
   https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=your_api_key
 
 - copy your api key from the newsapi link, and paste it in .env file
-- also put to .env file; the info required as in .env_example, then:
+- also put to .env file the info required as in .env_example, then:
 
   - .../> py manage.py makemigrations
   - .../> py manage.py migrate
