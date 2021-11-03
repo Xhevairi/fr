@@ -38,7 +38,7 @@ Articles can be posted, edited or deleted if registerd users are part of staff. 
 Username: admin
 Password: admin
 
-For password rest an account needs to be created. For a free one, you can use this web page:
+For password reset an account needs to be created. For a free one, you can use this web page:
 https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all
 
 Try it and good luck!
